@@ -34,8 +34,8 @@ class TarefaService:
         
     def buscar_todos(self, titulo: str | None, concluida: str | None, id_usuario: int) -> Sequence[Tarefa]:
         titulo = titulo.strip() if titulo is not None and titulo != "" else None
-        int_concluida = int(concluida) if concluida is not None and concluida != "" else None
-        tarefas = self.repository.buscar_todos(titulo, int_concluida, id_usuario)
+        integer_concluida = int(concluida.strip()) if concluida is not None and concluida != "" else None
+        tarefas = self.repository.buscar_todos(titulo, integer_concluida, id_usuario)
         
         if not tarefas:
             raise LookupError("Tarefas específicas não encontradas.")

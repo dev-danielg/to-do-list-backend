@@ -24,7 +24,7 @@ class TarefaController:
         except Exception:
             return {
                 "success": False,
-                "message": "Erro interno no servidor"
+                "message": "Erro interno no servidor."
             }, 500
         
         return {
@@ -62,7 +62,7 @@ class TarefaController:
         except Exception:
             return {
                 "success": False,
-                "message": f"Erro interno no servidor",
+                "message": f"Erro interno no servidor.",
             }, 500
         
         return {
