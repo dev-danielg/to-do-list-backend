@@ -56,7 +56,7 @@ class TarefaService:
         return tarefa
     
     
-    def deletar(self, id_tarefa:int, id_usuario: int):
+    def deletar(self, id_tarefa: int, id_usuario: int):
         tarefa = self.buscar_por_id(id_tarefa, id_usuario)
         
         try:
