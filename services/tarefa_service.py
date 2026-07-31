@@ -69,8 +69,18 @@ class TarefaService:
             raise
         
     
-    def atualizar(self, id_tarefa, id_usuario: int):
+    def atualizar(self, id_tarefa, dados: dict, id_usuario: int):
         tarefa = self.buscar_por_id(id_tarefa, id_usuario)
+        titulo = dados.get("titulo")
+        descricao = dados.get("descricao")
+        concluida = dados.get("concluida")
+        
+        if titulo:
+            tarefa.titulo = titulo
+        if descricao:
+            tarefa.descricao = descricao
+        if concluida:
+            tarefa.concluida = concluida
         
         try:
             self.repository.atualizar(tarefa)

@@ -113,9 +113,9 @@ class TarefaController:
         }, 200
     
     
-    def atualizar(self, id_tarefa: int) -> tuple[dict[str, str | object], int]:
+    def atualizar(self, id_tarefa) -> tuple[dict[str, str | object], int]:
         try:
-            tarefa = self.service.atualizar(id_tarefa, int(get_jwt_identity()))
+            tarefa = self.service.atualizar(id_tarefa, request.get_json(), int(get_jwt_identity()))
             
         except ValueError as e:
             return {
