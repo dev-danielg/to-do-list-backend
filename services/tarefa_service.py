@@ -13,11 +13,12 @@ class TarefaService:
     def cadastrar(self, dados: dict, id_usuario: int) -> Tarefa:
         titulo = dados.get("titulo")
         descricao = dados.get("descricao")
+        descricao = descricao.strip() if descricao else descricao
         
         if not titulo:
             raise ValueError("Tarefa deve conter ao menos o título.")
         
-        tarefa = Tarefa(titulo=titulo,
+        tarefa = Tarefa(titulo=titulo.strip(),
                         descricao=descricao,
                         concluida=False,
                         id_usuario=id_usuario)
@@ -76,9 +77,9 @@ class TarefaService:
         concluida = dados.get("concluida")
         
         if titulo:
-            tarefa.titulo = titulo
+            tarefa.titulo = titulo.strip()
         if descricao:
-            tarefa.descricao = descricao
+            tarefa.descricao = descricao.strip()
         if concluida:
             tarefa.concluida = concluida
         
